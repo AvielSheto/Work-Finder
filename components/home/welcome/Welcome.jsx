@@ -14,7 +14,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Adrian</Text>
+        <Text style={styles.userName}>Hello Aviel</Text>
         <Text style={styles.welcomeMessage}>Find your perfect jobs</Text>
       </View>
 
@@ -51,8 +51,10 @@ const Welcome = () => {
             >
               <Text style={styles.tabText(activeJobsType, item)}>{item}</Text>
             </TouchableOpacity>
-
           )}
+          keyExtractor={item => item}
+          contentContainerStyle={{columnGap: SIZES.small}}
+          horizontal
         />
       </View>
     </View>
