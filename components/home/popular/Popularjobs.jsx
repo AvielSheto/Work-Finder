@@ -36,7 +36,7 @@ const Popularjobs = () => {
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />
-        )}
+        )};
       </View>
     </View>
   )
