@@ -1,4 +1,4 @@
-import { View, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl } from 'react-native';
 import { Stack, useRouter, useSearchParams } from 'expo-router';
 import { useCallback, useState } from 'react';
 
@@ -47,22 +47,22 @@ function jobDetails() {
           <Text>Something went wrong</Text>
         ) : data.length === 0 ? (
           <Text>No data</Text>
-        ): (
-          <View style={{padding: SIZES.medium, paddingBottom: 100}}>
+        ) : (
+          <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
             <Company
-            companyLogo={data[0].employer_logo}
-            jobTitle={data[0].job_title}
-            companyName={data[0].employer_name}
-            location={data[0].job_country}
+              companyLogo={data[0].employer_logo}
+              jobTitle={data[0].job_title}
+              companyName={data[0].employer_name}
+              location={data[0].job_country}
             />
 
             <JobTabs
-            
+
             />
 
           </View>
         )
-    }
+        }
 
       </ScrollView>
     </SafeAreaView>
