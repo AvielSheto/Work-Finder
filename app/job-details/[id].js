@@ -1,24 +1,44 @@
-import { View, Text, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl } from 'react-native';
-import { Stack, useRouter, useSearchParams } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { Stack, useRouter, useSearchParams } from "expo-router";
+import { useCallback, useState } from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  ActivityIndicator,
+  RefreshControl
+} from "react-native";
 
-import { Company, JobAbout, JobFooter, JobTabs, ScreenHeaderBtn, Specifics } from '../../components';
-import { COLORS, icons, SIZES } from '../../constants';
-import useFetch from '../../hook/useFetch';
+import {
+  Company,
+  JobAbout,
+  JobFooter,
+  JobTabs,
+  ScreenHeaderBtn,
+  Specifics,
+} from "../../components";
+import { COLORS, icons, SIZES } from "../../constants";
+import useFetch from "../../hook/useFetch";
+
 const tabs = ["About", "Qualifications", "Responsibilities"];
 
-function jobDetails() {
+const JobDetails = () => {
   const params = useSearchParams();
   const router = useRouter();
 
-  const { data, isLoading, error, refetch } = useFetch('job-details', { job_id: params.id });
+  const { data, isLoading, error, refetch } = useFetch("job-details", {
+    job_id: params.id,
+  });
 
-  const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const onRefresh = () => {
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch()
+    setRefreshing(false)
+  }, []);
 
-  }
 
   const displayTabContent = () => {
     switch (activeTab) {
@@ -47,7 +67,6 @@ function jobDetails() {
         return null;
     }
   };
-
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -100,10 +119,11 @@ function jobDetails() {
             </View>
           )}
         </ScrollView>
-        <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'}/>
+
+        <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results/'} />
       </>
     </SafeAreaView>
   );
 };
 
-export default jobDetails
+export default JobDetails;
