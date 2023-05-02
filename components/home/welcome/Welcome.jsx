@@ -14,7 +14,6 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Aviel</Text>
         <Text style={styles.welcomeMessage}>Find your perfect jobs</Text>
       </View>
 
@@ -23,7 +22,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           <TextInput
             style={styles.searchInput}
             value={searchTerm}
-            onChange={(text) => setSearchTerm(text)}
+            onChangeText={(text) => setSearchTerm(text)}
             placeholder='What are you looking for?'
           />
         </View>
