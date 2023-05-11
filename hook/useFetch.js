@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {API_KEY} from '@env'
+import {API_KEY} from '@env';
 
 const useFetch = (endpoint, query) => {
     const [data, setData] = useState([]);
@@ -36,7 +36,7 @@ const useFetch = (endpoint, query) => {
 
     useEffect(()=>{
         fetchData();
-    },[])
+    },[]);
 
     const refetch = ()=> {
         setIsLoading(true);
