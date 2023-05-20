@@ -20,7 +20,7 @@ const Popularjobs = () => {
   const handleCardPress = (item)=>{
     router.push(`/job-detail/${job_id}`);
     setSelectedJob(item.job_id);
-  }
+  };
 
 
   return (
