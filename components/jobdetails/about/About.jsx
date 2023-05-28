@@ -1,7 +1,7 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { View, Text } from 'react-native';
 
-import styles from './about.style'
+import styles from './about.style';
 
 const About = ({info}) => {
   return (
@@ -13,6 +13,6 @@ const About = ({info}) => {
       </View>
     </View>
   )
-}
+};
 
-export default About
+export default About;
